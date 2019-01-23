@@ -1,28 +1,59 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {
+  Component
+} from 'react'
+import {
+  Link,
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+import Home from './Home'
+import PhotoIndex from './PhotoIndex'
+import PhotoDetails from './PhotoDetails'
+import IndexOfPics from './PicInfo'
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    return ( <
+      Router >
+      <
+      main >
+      <
+      section className = "hero" >
+      <
+      div className = "hero-body" >
+      <
+      div className = "container" >
+      <
+      h1 className = "title" >
+      <
+      Link to = "/" > Things I Like < /Link> <
+      /h1> <
+      h2 className = "subtitle" > Photo Gallery < /h2> <
+      /div> <
+      /div> <
+      /section> <
+      section className = "section" >
+      <
+      Route exact path = "/"
+      component = {
+        Home
+      }
+      /> <
+      Route path = "/:category"
+      exact component = {
+        IndexOfPics
+      }
+      /> <
+      Route path = "/:category/:id"
+      exact component = {
+        PicInfo
+      }
+      /> <
+      /section> <
+      /main> <
+      /Router>
+    )
   }
 }
 
-export default App;
+export default App
